@@ -1,6 +1,27 @@
 .navbar {
-    border-bottom: 1px lightgrey solid;
-    padding-bottom: 1rem;
+    display: flex;
+    background-color: lightgrey;
+  }
+  
+  .navbar > * {
+    margin-right: 10px;
+  }
+  
+  .contactListElement {
+    padding: 5px;
+    border-top: 1px solid lightgrey;
+  }
+  
+  .contactListElement:hover {
     background-color: lightyellow;
-
-}
+    color: red;
+  }
+  
+  .contactListView {
+    display: flex;
+  }
+  
+  .contactList {
+    width: 25%;
+    border-right: 1px solid lightgrey;
+  }

@@ -1,16 +1,22 @@
 import './App.css';
-import { Outlet, Link } from 'react-router-dom';
+import Home from './components/Home';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+
   return (
-    <div>
-      <h1>Landing page</h1>
-      <nav className="navbar">
-        <Link to="/home">Home</Link> |{" "}
-        <Link to="/login">Login</Link>
-      </nav>
-      <Outlet />
-    </div>
+    <BrowserRouter>
+      <div>
+        <div className="navbar">
+          <Link to="/"><div>Home</div></Link>
+          
+        </div>
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
