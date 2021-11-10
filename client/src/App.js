@@ -1,4 +1,5 @@
 import './App.css';
+import Error from './components/Error';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element = { <Login /> } />
           <Route path="/register" element = { <Register /> } />
           <Route path="/cart" element = { <ShoppingCart /> } />
+          <Route path="/*" element = { <Error />} />
         </Routes>
       </div>
     </BrowserRouter>
