@@ -1,6 +1,7 @@
 .navbar {
     display: flex;
     background-color: lightgrey;
+    height: 5rem;
   }
   
   .navbar > * {
