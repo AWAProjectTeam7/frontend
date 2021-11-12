@@ -6,6 +6,7 @@ import Register from './components/Register';
 import ShoppingCart from './components/ShoppingCart';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 function App() {
 
