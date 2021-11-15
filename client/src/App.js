@@ -14,12 +14,13 @@ function App() {
     <BrowserRouter>
       <div>
         <div className="navbar">
+          {/* Change visual order with links */}
           <Link to="/"><div>Home</div></Link>
           <Link to="login"><div>Login</div></Link>
           <Link to="register"><div>Register</div></Link>
-          <Link to="cart"><div>Cart</div></Link>
-          
+          <Link to="cart"><div>Shopping cart</div></Link>
         </div>
+        
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/login" element = { <Login /> } />
