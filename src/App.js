@@ -8,9 +8,9 @@ import Logo from './components/Logo';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import xrequest from './managed_scripts/xrequest.js'
 
 function App() {
-
   return (
     <BrowserRouter>
       <div>
