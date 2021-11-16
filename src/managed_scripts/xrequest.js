@@ -24,9 +24,21 @@ function enforceHTTPS (url="") {
     return url;
 }
 
+function errorHandler (err, callback) {
+    if (err.response && err.response.data)
+    {
+        //Silently handles API thrown manual errors whilst keeping the return info.
+        callback(err.response.data);
+    }
+    else
+    {
+        //Real error that should be logged.
+        console.log(err);
+    }
+}
+
 const xrequest = {
     setSource: function (sourceFileURL) {
-        //xrequestAPIurlDictionary["sourceFileURL"] = sourceFileURL;
         //This is made primarily with GitHub's raw file response in mind, 
         //but any service that retruns the file contents in a raw format works just as well.
         axios.get(sourceFileURL).then((response) => { 
@@ -45,9 +57,7 @@ const xrequest = {
         axios.get(requestURL, { withCredentials: true }).then((response) => { 
             callback(response.data);
         }).catch((err) => {
-            //silently handles errors whilst keeping the return info.
-            console.log(err);
-            callback(err.response.data);
+            errorHandler(err, callback);
         });
     },
     POST: function (requestURL, payload, callback) { 
@@ -55,9 +65,7 @@ const xrequest = {
         axios.post(requestURL, payload, { withCredentials: true }).then((response) => {
             callback(response.data);
         }).catch((err) => {
-            //silently handles errors whilst keeping the return info.
-            console.log(err);
-            callback(err.response.data);
+            errorHandler(err, callback);
         });
     },
     DELETE: function (requestURL, _arguments, callback) { 
@@ -66,9 +74,7 @@ const xrequest = {
         axios.delete(requestURL, { withCredentials: true }).then((response) => {
             callback(response.data);
         }).catch((err) => {
-            //silently handles errors whilst keeping the return info.
-            console.log(err);
-            callback(err.response.data);
+            errorHandler(err, callback);
         });
     }
 };
