@@ -37,6 +37,34 @@ function errorHandler (err, callback) {
     }
 }
 
+function parameterHandler (url, params) {
+    if (url.includes("#") && params)
+    {
+        let sections = url.split("#");
+        let buildURL = "";
+        if (Array.isArray(params))
+        {
+            sections.forEach((element, index) => {
+                buildURL += element;
+                if (params.length > index)
+                {
+                    buildURL += params[index];
+                }
+            });
+            url = buildURL;
+        }
+        else
+        {
+            url = sections[0]+params+sections[1];
+        }
+    }
+    else if (params)
+    {
+        url += params;
+    }
+    return url;
+}
+
 const xrequest = {
     setSource: function (sourceFileURL) {
         //This is made primarily with GitHub's raw file response in mind, 
@@ -48,29 +76,27 @@ const xrequest = {
             console.log("API routes dictionary successfully set.");
         }).catch(err => console.log(err));
     },
-    GET: function (requestURL, callback, _arguments) {
+    GET: function (requestURL, parameters, callback) {
         requestURL = enforceHTTPS(xrequestAPIurlDictionary[requestURL]);
-        if (_arguments)
-        {
-            requestURL += _arguments;
-        }
+        requestURL = parameterHandler(requestURL, parameters);
         axios.get(requestURL, { withCredentials: true }).then((response) => { 
             callback(response.data);
         }).catch((err) => {
             errorHandler(err, callback);
         });
     },
-    POST: function (requestURL, payload, callback) { 
+    POST: function (requestURL, payload, callback, _parameters) { 
         requestURL = enforceHTTPS(xrequestAPIurlDictionary[requestURL]);
+        requestURL = parameterHandler(requestURL, _parameters);
         axios.post(requestURL, payload, { withCredentials: true }).then((response) => {
             callback(response.data);
         }).catch((err) => {
             errorHandler(err, callback);
         });
     },
-    DELETE: function (requestURL, _arguments, callback) { 
+    DELETE: function (requestURL, parameters, callback) { 
         requestURL = enforceHTTPS(xrequestAPIurlDictionary[requestURL]);
-        requestURL += _arguments;
+        requestURL = parameterHandler(requestURL, parameters);
         axios.delete(requestURL, { withCredentials: true }).then((response) => {
             callback(response.data);
         }).catch((err) => {
