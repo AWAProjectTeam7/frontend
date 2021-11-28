@@ -4,7 +4,11 @@ import styles from "../styles/Card.module.css";
 import {Link} from "react-router-dom"
 const { Meta } = Card;
 
-export default function Restaurant() {
+export default function Restaurant(props) {
+
+
+
+
   return (
     
     <div className={styles.WrappedStyled}>
@@ -18,8 +22,8 @@ export default function Restaurant() {
           {/* <Meta title="Europe Street beat" description="www.instagram.com" /> */}
           <div className={styles.Restaurant_card_content}>
             <h3 className={styles.Restaurant_name}>
-              {" "}
-              Mc Donald's Oulu Rotuaari
+              {/* {" "} */}
+              {"McDonalds"}
             </h3>
 
             <div className={styles.Restaurant_type}>Fried Chicken</div>
