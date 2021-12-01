@@ -1,16 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <div>
-      <h1>Home</h1>
-      <div>
-      <p>This is the homepage.</p>
-      <p>Restaurant owner? Click below.</p>
-      <Link to="secondview"><button>Register</button></Link>
+    <div className="contactListView">
+      <div className="contactList">
+      { props.restaurants.map(restaurant =>
+        <Link to={ restaurant.id }>
+          <div className="contactListElement">{restaurant.name} {restaurant.location}</div>
+        </Link>
+      )}
       </div>
-      
+      <div className="contactDetail">
+        Here the details of seleceted restaurant
+        <Outlet />
+      </div>
     </div>
   )
 }
