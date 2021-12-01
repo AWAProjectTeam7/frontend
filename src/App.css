@@ -8,21 +8,21 @@
     margin-right: 10px;
   }
   
-  .contactListElement {
+  .restaurantListElement {
     padding: 5px;
     border-top: 1px solid lightgrey;
   }
   
-  .contactListElement:hover {
+  .restaurantListElement:hover {
     background-color: lightyellow;
     color: red;
   }
   
-  .contactListView {
+  .restaurantListView {
     display: flex;
   }
   
-  .contactList {
+  .restaurantList {
     width: 25%;
     border-right: 1px solid lightgrey;
   }
