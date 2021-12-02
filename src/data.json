@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Hesburger",
+        "location": "Oulu",
+        "type": "Fasfood"
+    },
+    {
+        "name": "Rosso",
+        "location": "Oulu",
+        "type": "Fine dining"
+    },
+    {
+        "name": "Starbucks",
+        "location": "Helsinki",
+        "type": "Cafe"
+    },
+    {
+        "name": "McDonalds",
+        "location": "Oulu",
+        "type": "Fasfood"
+    },
+    {
+        "name": "Hesburger",
+        "location": "Turku",
+        "type": "Fasfood"
+    },
+    {
+        "name": "Rosso",
+        "location": "Tampere",
+        "type": "Fine dining"
+    },
+    {
+        "name": "Starbucks",
+        "location": "Rovaniemi",
+        "type": "Cafe"
+    },
+    {
+        "name": "McDonalds",
+        "location": "Kajaani",
+        "type": "Fasfood"
+    }
+]
