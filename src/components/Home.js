@@ -5,6 +5,7 @@ export default function Home(props) {
   const getRestaurantID= (e) =>{
     props.getRestaurantID(e)
   }
+  
   return (
     <div className="restaurantListView">
       <div className="restaurantList">

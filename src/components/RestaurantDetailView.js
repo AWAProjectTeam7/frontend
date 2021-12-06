@@ -7,11 +7,26 @@ export default function ContactDetailView(props) {
    
   const result = useParams();
   
+  const AddtoCart=(e) =>{
+    var Quantity = 0;
+    if (localStorage.getItem(e.id) === null) {
+      Quantity = 1;
+    }
+    else {
 
+      Quantity = parseInt(JSON.parse(localStorage.getItem(e.id)).quantity) + 1
+    }
+    e['quantity']=Quantity
+    window.localStorage.setItem(e.id, JSON.stringify(e))
+    
+    alert("Add to cart successfully !!!")
+  
+  
+  }
  
   const restaurant=props.restaurant.venue
   const menu=props.restaurant.products
-  console.log(menu)
+
   if(restaurant== null) {
     return <div>No matching contact</div>
   }
@@ -73,7 +88,7 @@ export default function ContactDetailView(props) {
         </tbody>
       </table>
     <div >
-      {menu.map((menu=>  <button className="card" key={menu.id}>
+      {menu.map((menu=>  <button className="card" key={menu.id} onClick={()=>AddtoCart(menu)}>
             <img src={menu.image}  style={{width:'30%'}}/>
             <div className="container">
               <h4><b>{menu.name}</b></h4> 
