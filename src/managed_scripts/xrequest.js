@@ -66,14 +66,16 @@ function parameterHandler (url, params) {
 }
 
 const xrequest = {
-    setSource: function (sourceFileURL) {
-        //This is made primarily with GitHub's raw file response in mind, 
-        //but any service that retruns the file contents in a raw format works just as well.
+    setSource: function (urlDictionary) {
+        xrequestAPIurlDictionary = urlDictionary;
+    },
+    downloadSource: function (sourceFileURL, callback=()=>{}) {
         axios.get(sourceFileURL).then((response) => { 
             //The function expects a JSON file as a response where the key is the name of the url, 
             //such as "login" and the value is for example "https://example.com/users/login"
             xrequestAPIurlDictionary = response.data;
-            console.log("API routes dictionary successfully set.");
+            console.log("API routes dictionary successfully downloaded.");
+            callback(xrequestAPIurlDictionary);
         }).catch(err => console.log(err));
     },
     GET: function (requestURL, parameters, callback) {
