@@ -31,8 +31,8 @@ jobs:
       - name: npm build
         run:
           npm run build --passWithNoTests
-          env:
-            CI: false
+        env:
+          CI: false
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
