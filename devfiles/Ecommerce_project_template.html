@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cuisine Street</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Ecommerce_project_template.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/regular.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css" />
+    </head>
+    <body>
+        <!-- Page headers start here -->
+        <div id="HeaderContainer">
+            <div id="HeaderBar">
+                <div class="Group">
+                    <div id="Title">
+                        <p> <h1> <b>Cuisine Street</b> </h1> </p>
+                    </div>
+                </div>
+                <div class="Group">
+                    <div id="Account">
+                        <a id="User_Login" href="url"> Login </a>
+                         or 
+                        <a id="User_Login" href="url"> Register </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page content starts here -->
+
+        <div id="Content">
+            <div id=mainContent>
+                <div id="SearchBox">
+                    <h1>It doesn't matter if you're just in for <br> a quick snack, <br>
+                        or a family dinner: <br><br>
+                        We're right by <b>you.</b></h1>
+                    <h2>Find venues delivering right now, near you:</h2> 
+                    <div class="searchBarContainer">
+                        <input class="searchBar" type="text" placeholder="Search for your city"/>
+                    </div>
+                </div>
+                <div id=exploreCitiesHintText> 
+                    <button onclick={window.scrollTo(0,document.body.scrollHeight);}> <h2> <i class="fas fa-angle-down"></i> Or explore cities we support <i class="fas fa-angle-down"></i> </h2> </button>
+                </div>
+            </div>
+            <div id=exploreCitiesList>
+                <div id=cityList>
+                    <button class="cityButton">City1</button>
+                    <button class="cityButton">City1</button>
+                    <button class="cityButton">City1</button>
+                    <button class="cityButton">City1</button>
+                    <button class="cityButton">City1</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

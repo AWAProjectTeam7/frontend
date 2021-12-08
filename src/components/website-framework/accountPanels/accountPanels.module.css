@@ -1,0 +1,26 @@
+#promptContainer_Inactive {
+    position: absolute;
+    top: -50%;
+    left: 38%;
+    transition-duration: 0.75s;
+}
+
+#promptContainer_Active {
+    position: absolute;
+    top: 30%;
+    left: 38%;
+    transition-duration: 0.75s;
+    z-index: 5;
+}
+
+.accountButton {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.accountButton:hover {
+    border: none;
+    background-color: transparent;
+    color: rgb(173, 173, 173);
+}

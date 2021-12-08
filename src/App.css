@@ -26,3 +26,7 @@
     width: 25%;
     border-right: 1px solid lightgrey;
   }
+
+#content {
+    transition-duration: 0.5s;
+}

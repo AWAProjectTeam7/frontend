@@ -1,0 +1,32 @@
+.categoryArea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #bebebe;
+    margin-bottom: 10px;
+}
+
+.categoryTitle {
+    color:#000000;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-bottom: solid;
+    border-color: #bebebe;
+    background-color:rgb(255, 255, 255);
+}
+
+.contentFlexGridDisplay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:flex-start;
+    background-color: #eeeeee;
+}

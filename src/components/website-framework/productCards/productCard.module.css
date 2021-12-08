@@ -1,0 +1,73 @@
+.tileArea {
+    width: 20vw;
+    background-color:rgb(252, 252, 252);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #bebebe;
+    margin-bottom: 10px;
+    min-width: 200px;
+    min-height: 230px;
+    max-width: 20vw;
+    max-height: 10vh;
+    margin: 5px 15px 5px 15px;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.tileArea:hover{
+    box-shadow: 1px 2px 10px gray;
+}
+
+.tileArea:hover .tileTitle {
+    text-shadow: 0 0 .75px #333;
+    
+}
+
+.tileContents {
+    margin: 5px 15px -10px 15px;
+}
+
+.tileImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: dashed;
+    border-bottom-width: 2px;
+    border-color: #bebebe;
+}
+
+.tileImage {
+    display: block;
+    max-width: 18vw;
+    max-height: 18vh;
+    margin-bottom: 5px;
+}
+
+.tileTitle {
+    color:#000000;
+    font-size: 16px;
+    margin: 5px 1px 5px 0px;
+    transition-duration: 0.5s;
+}
+
+.tileSubtext1 {
+    color: #797979;
+    font-size: 12px;
+    margin: 3px 0px 5px 0px;
+}
+
+.tileSubtext2_ok {
+    margin: 5px 0px 5px 0px;
+    font-size: 12px;
+    color: green;
+}
+
+.tileSubtext2_no {
+    margin: 5px 0px 5px 0px;
+    font-size: 12px;
+    color: red;
+}
