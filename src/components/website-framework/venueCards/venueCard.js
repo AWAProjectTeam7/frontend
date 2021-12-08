@@ -27,6 +27,7 @@ export default function VenueCard(props) {
             status = "Closed";
             props.data.openStyling = styles.tileSubtext2_no;
         }
+        console.log(status + " : " + props.data.openStyling);
         return status;
     }
 
