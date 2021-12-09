@@ -44,6 +44,7 @@ html {
 #Account a {
     color: #ffffff;
     text-decoration: none;
+    padding-right: 1rem;
 }
 
 #Account a:hover {

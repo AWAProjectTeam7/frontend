@@ -1,6 +1,7 @@
 import styles from './framework-main.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShoppingCart from '../../ShoppingCart'
 //Import account module
 import Accounts from '../accountPanels/accountPanelsSelector';
 //
@@ -21,6 +22,9 @@ export default function FrameworkMain_PersistentLayout(props) {
                 {
                     //cart
                 }
+                <div id={styles.Account}>
+                    <Link to="/cart" element={ <ShoppingCart /> }><i class="fas fa-shopping-cart"></i> Cart</Link>
+                </div>
             </div>
         </div>
     </div>
