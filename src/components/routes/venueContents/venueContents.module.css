@@ -12,3 +12,12 @@
     width: 100%;
     align-items: flex-start;
 }
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+#venueName {
+    margin-left: 5px;
+}

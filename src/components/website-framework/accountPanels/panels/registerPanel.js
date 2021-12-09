@@ -37,6 +37,9 @@ export default function RegisterPanel(props) {
                 <label for="corporate">Corporate </label>
                 <input className={styles.fields} id="corporate" name="corporate" type="checkbox" onChange={updateInput}/>
             </div>
+            <div className={styles.error}>
+                { props._error }
+            </div>
             <div className={styles.inputContainer2}>
                 <button className={styles.panelButton} onClick={panelAction}>Register</button>
                 <button className={styles.panelButton} onClick={props._close}>Cancel</button>

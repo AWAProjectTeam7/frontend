@@ -8,10 +8,7 @@ import VenueProducts from './components/routes/venueContents/venueContents';
 import Login from './components/Login';
 import Register from './components/Register';
 import ShoppingCart from './components/ShoppingCart';
-import RestaurantDetailView from './components/RestaurantDetailView';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import RestaurantData from './data.json';
 //
 import xrequest from './managed_scripts/xrequest';
 //
@@ -50,11 +47,8 @@ class App extends React.Component {
         });
     }
 
-    changeUserLoginStatues = () => {
-        this.setState({userLoggedIn: true}, ()=>{
-            console.log("app state : userLoggedIn: " + this.state.userLoggedIn);
-        });
-        localStorage.setItem("_loginExpTime", (Date.now()+28800000).toString());
+    changeUserLoginStatus = () => {
+        this.setState({userLoggedIn: true});
     }
 
     render()
@@ -66,7 +60,7 @@ class App extends React.Component {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/regular.min.css" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css" />
                 {/* Header ribbon */}
-            <FrameworkMain urldictionary={this.state.xrequestUrlDictionary} _userLoginStatus={this.state.userLoggedIn} _userLoginStatusCallback={this.changeUserLoginStatues}/>
+            <FrameworkMain urldictionary={this.state.xrequestUrlDictionary} _userLoginStatus={this.state.userLoggedIn} _userLoginStatusCallback={this.changeUserLoginStatus}/>
                 {/* Page contents */}
             <div id="content">
                 <Routes>

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './venueCard.module.css'
+import styles from './venueDataDisplay.module.css'
 import { useNavigate  } from 'react-router-dom'
 
-export default function VenueCard(props) {
+export default function VenueDataDisplay(props) {
 
     let navigate = useNavigate();
 
@@ -30,16 +30,11 @@ export default function VenueCard(props) {
         return status;
     }
 
-    function RedirectToVenue() {
-        let _targetURL = "/venues/"+props.data.id;
-        navigate(_targetURL);
-    }
-
     return (
-    <div className={styles.tileArea} onClick={RedirectToVenue}>
+    <div className={styles.tileArea}>
         <div className={styles.tileContents}>
             <div className={styles.tileImageContainer}>
-                <img className={styles.tileImage} src={ props.data.image } alt="" />
+                <img className={styles.tileImage} src={ (props.data.image) ? props.data.image : "https://foodservicestorage.blob.core.windows.net/images/default_image_01.png" } alt="" />
             </div>
             <div className={styles.tileTitle}>
                 { props.data.name }

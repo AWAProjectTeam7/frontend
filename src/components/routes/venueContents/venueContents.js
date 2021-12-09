@@ -6,7 +6,8 @@ import ProductCard from '../../website-framework/productCards/productCard';
 import CategoryContainer from '../../website-framework/categoryContainer/categoryContainer';
 import SidePanel from '../../website-framework/sidePanel/sidePanel';
 import CategoryJumpButton from '../../website-framework/categoryContainer/categoryJumpButton/categoryJumpButton';
-import VenueCard from '../../website-framework/venueCards/venueCard';
+import VenueDataDisplay from '../../website-framework/venueDataDisplay/venueDataDisplay';
+
 
 function UseRouterHook(Component) {
     return function WrappedComponent(props) {
@@ -45,11 +46,6 @@ class VenueProducts extends React.Component {
 
     getSidebarContents = (data)=>{
         let _sidebarContents = [];
-        console.log(data.venue);
-        _sidebarContents.push({
-            data: data.venue,
-            component: VenueCard
-        });
         data.products.forEach(element => {
             let _catIndex = _sidebarContents.findIndex(_element => _element.data.displayText == element.category);
             if (_catIndex == -1)
@@ -87,11 +83,16 @@ class VenueProducts extends React.Component {
     render() {
         let _contents = (
         <div>
-            <h1>
+            <h1 id={styles.venueName}>
                 {this.state.venueData.name}
             </h1>
             <div id={styles.container}>
-                <SidePanel panelTitle="Categories" components={this.state.sidebarContents}/>
+                <div id={styles.sidebar}>
+                    {
+                        (Object.keys(this.state.venueData).length != 0) ? <VenueDataDisplay data={this.state.venueData} /> : ""
+                    }
+                    <SidePanel panelTitle="Categories" components={this.state.sidebarContents}/>
+                </div>
                 <div id={styles.categories}>
                     {
                         this.state.categoriesList.map(element => <CategoryContainer categoryTitle={element.category} _componentData={element.products} _component={ProductCard}/>)

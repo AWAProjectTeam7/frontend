@@ -12,13 +12,36 @@ class accountPanelsSelector extends React.Component {
         this.state = {
             isLoginOpen: false,
             isRegisterOpen: false,
-            isPromptOpen: false
+            isPromptOpen: false,
+            userAccountError: ""
         };
     }
     
     componentDidMount()
     {
         xrequest.setSource(this.props.urldictionary);
+    }
+
+    API_error_handler = (error)=>{
+        let _errorMessage = "";
+        if (error.errorContents)
+        {
+            _errorMessage = error.errorContents;
+        }
+        else    
+        {
+            if (error.errorMessage == "Unauthorized")
+            {
+                _errorMessage = "Incorrect username or password.";
+            }
+            else
+            {
+                _errorMessage = error.errorMessage;
+            }
+        }
+        this.setState({ userAccountError: _errorMessage }, ()=>{
+            setTimeout(()=>{this.setState({ userAccountError: "" });}, 2500);
+        });
     }
 
     API_call_loginUser = (_data) => {
@@ -32,7 +55,7 @@ class accountPanelsSelector extends React.Component {
             }
             else
             {
-                //show login error
+                this.API_error_handler(response);
             }
         });
     };
@@ -42,12 +65,13 @@ class accountPanelsSelector extends React.Component {
             if (response.status == "success")
             {
                 this.setState({isLoginOpen: false, isRegisterOpen: false, isPromptOpen: false}, ()=>{
+                    this.props._userLoginStatusCallback();
                     this.closePrompt();
                 });
             }
             else
             {
-                //show login error
+                this.API_error_handler(response);
             }
         });
     };
@@ -106,12 +130,12 @@ class accountPanelsSelector extends React.Component {
         {
             if (this.state.isLoginOpen)
             {
-                _prompt = <LoginPanel _close={this.closePrompt} _action={this.API_call_loginUser}/>;
+                _prompt = <LoginPanel _close={this.closePrompt} _action={this.API_call_loginUser} _error={this.state.userAccountError}/>;
                 loginStyle = styles.promptContainer_Active;
             }
             else if (this.state.isRegisterOpen)
             {
-                _prompt = <RegisterPanel _close={this.closePrompt} _action={this.API_call_registerUser}/>;
+                _prompt = <RegisterPanel _close={this.closePrompt} _action={this.API_call_registerUser} _error={this.state.userAccountError}/>;
                 loginStyle = styles.promptContainer_Active;
             }
             else

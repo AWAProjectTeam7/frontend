@@ -24,6 +24,9 @@ export default function LoginPanel(props) {
             </div>
             <input className={styles.fields} name="username" type="text" placeholder="Username" onChange={updateInput}/>
             <input className={styles.fields} name="password" type="password" placeholder="Password" onChange={updateInput}/>
+            <div className={styles.error}>
+                { props._error }
+            </div>
             <div className={styles.inputContainer2}>
                 <button className={styles.panelButton} onClick={panelAction}>Login</button>
                 <button className={styles.panelButton} onClick={props._close}>Cancel</button>
