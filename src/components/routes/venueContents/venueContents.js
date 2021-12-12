@@ -7,6 +7,7 @@ import CategoryContainer from '../../website-framework/categoryContainer/categor
 import SidePanel from '../../website-framework/sidePanel/sidePanel';
 import CategoryJumpButton from '../../website-framework/categoryContainer/categoryJumpButton/categoryJumpButton';
 import VenueDataDisplay from '../../website-framework/venueDataDisplay/venueDataDisplay';
+import CartManager from '../../../managed_scripts/cartManager';
 
 
 function UseRouterHook(Component) {
@@ -31,6 +32,7 @@ class VenueProducts extends React.Component {
     {
         xrequest.setSource(this.props.urldictionary);
         this.getCityVenues();
+        CartManager.checkOverWriteCart(this.props.URLparams.venueID);
     }
 
     getCityVenues = () => {
@@ -67,12 +69,14 @@ class VenueProducts extends React.Component {
             {
                 categories.push({
                     category: catElement.category,
-                    products: []
+                    products: [],
                 });
                 _products.forEach(venElement => {
                     if (venElement.category == catElement.category)
                     {
-                        categories[categories.length-1].products.push(venElement);
+                        let venueData = venElement;
+                        venueData.callback = (id)=>{CartManager.addItem(id);};
+                        categories[categories.length-1].products.push(venueData);
                     }
                 });
             }

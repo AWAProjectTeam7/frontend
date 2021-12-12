@@ -1,0 +1,24 @@
+.itemContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.itemContainer_mainrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.itemContainer_quanPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10vw;
+}
+
+.itemContainer_unitPrice {
+    margin-left: 5vw;
+    font-size: 13px;
+}

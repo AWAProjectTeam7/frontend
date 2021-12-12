@@ -41,13 +41,21 @@
     align-items: flex-start;
 }
 
-.receiptArea {
-    background-color: white;
-    width: 35vw;
+.halfContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    width: 45vw;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.receiptEntry {
-    border-bottom: dashed #bebebe;
-    margin-top: 5px;
-    padding-bottom: 5px;
+.halfContainer_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
 }

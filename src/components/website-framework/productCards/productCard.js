@@ -3,16 +3,8 @@ import styles from './productCard.module.css'
 
 export default function ProductCard(props) {
 
-    const addItemToCart = (name, price) => {
-        let cartProducts = [props.data];
-        cartProducts.push({
-            id: cartProducts.length + 1,
-            name: name,
-            price: price
-        });
-        cartProducts.forEach(element => {
-            console.log(element);
-        });
+    const addItemToCart = () => {
+        props.data.callback(props.data.id);
     }
 
     return (

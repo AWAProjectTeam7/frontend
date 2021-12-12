@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.receiptArea {
+    background-color: white;
+    width: 30vw;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border: solid #bebebe 3px;
+}
+
+.receiptEntry {
+    border-bottom: dotted #bebebe;
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+
+.orderKey {
+    overflow-wrap: break-word;
+    color: #bebebe;
+    font-size: 10px;
+}
+
+.total {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
