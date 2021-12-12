@@ -49,7 +49,7 @@ class accountPanelsSelector extends React.Component {
             if (response.status == "success")
             {
                 this.setState({isLoginOpen: false, isRegisterOpen: false, isPromptOpen: false}, ()=>{
-                    this.props._userLoginStatusCallback();
+                    this.props._userLoginStatusCallback(response.data.realm);
                     this.closePrompt();
                 });
             }
@@ -65,7 +65,7 @@ class accountPanelsSelector extends React.Component {
             if (response.status == "success")
             {
                 this.setState({isLoginOpen: false, isRegisterOpen: false, isPromptOpen: false}, ()=>{
-                    this.props._userLoginStatusCallback();
+                    this.props._userLoginStatusCallback(response.data.realm);
                     this.closePrompt();
                 });
             }
@@ -78,7 +78,6 @@ class accountPanelsSelector extends React.Component {
 
     blurContent = () => {
         let _content = document.getElementById("content");
-        console.log(_content.style.filter);
         if (_content.style.filter == "blur(15px)")
         {
             _content.style = "";

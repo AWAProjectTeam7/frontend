@@ -40,7 +40,8 @@ class FrontPage extends React.Component {
     onEnterPress = (event) => {
         if (event.key === "Enter")
         {
-            let searchValue = event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
+            let searchValue = event.target.value.toLowerCase();
+            searchValue = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
             if (this.state.venueCities.includes(searchValue))
             {
                 let target = "/cities/"+searchValue;

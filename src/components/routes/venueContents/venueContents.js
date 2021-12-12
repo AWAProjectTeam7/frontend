@@ -83,9 +83,6 @@ class VenueProducts extends React.Component {
     render() {
         let _contents = (
         <div>
-            <h1 id={styles.venueName}>
-                {this.state.venueData.name}
-            </h1>
             <div id={styles.container}>
                 <div id={styles.sidebar}>
                     {

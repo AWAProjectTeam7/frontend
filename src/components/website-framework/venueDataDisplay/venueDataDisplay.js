@@ -1,10 +1,7 @@
 import React from 'react'
 import styles from './venueDataDisplay.module.css'
-import { useNavigate  } from 'react-router-dom'
 
 export default function VenueDataDisplay(props) {
-
-    let navigate = useNavigate();
 
     function parsePricing(pricingNum) {
         let priceStrings = ["€", "€€", "€€€", "€€€€"];
@@ -31,23 +28,21 @@ export default function VenueDataDisplay(props) {
     }
 
     return (
-    <div className={styles.tileArea}>
-        <div className={styles.tileContents}>
-            <div className={styles.tileImageContainer}>
-                <img className={styles.tileImage} src={ (props.data.image) ? props.data.image : "https://foodservicestorage.blob.core.windows.net/images/default_image_01.png" } alt="" />
-            </div>
-            <div className={styles.tileTitle}>
-                { props.data.name }
-            </div>
-            <div className={styles.tileSubtext1}>
-                {props.data.address} , {props.data.city}
-            </div>
-            <div className={props.data.openStyling ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
-                {isVenueOpen()}
-            </div>
-            <div className={styles.tileSubtext1}>
-                Price rating: {parsePricing(props.data.pricing)}
-            </div>
+    <div className={styles.panelArea}>
+        <h1 className={styles.panelTitle}>
+            { props.data.name }
+        </h1>
+        <div className={styles.tileImageContainer}>
+            <img className={styles.tileImage} src={ (props.data.image) ? props.data.image : "https://foodservicestorage.blob.core.windows.net/images/default_image_01.png" } alt="" />
+        </div>
+        <div className={styles.tileSubtext1}>
+            {props.data.address} , {props.data.city}
+        </div>
+        <div className={props.data.openStyling ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
+            {(props.data.businessHours) ? isVenueOpen() : ""}
+        </div>
+        <div className={styles.tileSubtext1}>
+            Price rating: {parsePricing(props.data.pricing)}
         </div>
     </div>
     )

@@ -8,10 +8,12 @@ import VenueProducts from './components/routes/venueContents/venueContents';
 import Login from './components/Login';
 import Register from './components/Register';
 import ShoppingCart from './components/ShoppingCart';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //
 import xrequest from './managed_scripts/xrequest';
 //
+import AccountPage from './components/routes/account/accountPageSelector';
+import OrderDetails from './components/routes/orderDetails/orderDetails';
 
 
 class App extends React.Component {
@@ -20,6 +22,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             userLoggedIn: false,
+            userRealm: "",
             xrequestUrlDictionary: undefined,
             callEnable: false
         };
@@ -29,8 +32,7 @@ class App extends React.Component {
     {
         xrequest.downloadSource("https://raw.githubusercontent.com/AWAProjectTeam7/backend/main/routes.json", (dictionary)=>{
             this.setState({ 
-                xrequestUrlDictionary: dictionary,
-                callEnable: true
+                xrequestUrlDictionary: dictionary
             }, ()=>{
                 xrequest.setSource(this.state.xrequestUrlDictionary);
                 this.checkForValidLogin();
@@ -42,13 +44,18 @@ class App extends React.Component {
         xrequest.GET("continue_session", "", (response)=>{
             if (response.status == "success")
             {
-                this.setState({userLoggedIn: true});
+                this.setState({userLoggedIn: true, userRealm: response.data.realm, callEnable: true});
+            }
+            else
+            {
+                this.setState({callEnable: true});
             }
         });
     }
 
-    changeUserLoginStatus = () => {
-        this.setState({userLoggedIn: true});
+    changeUserLoginStatus = (realm) => {
+        console.log(realm);
+        this.setState({userLoggedIn: true, userRealm: realm});
     }
 
     render()
@@ -67,10 +74,8 @@ class App extends React.Component {
                     <Route path="/" element={ <FrontPageContents urldictionary={this.state.xrequestUrlDictionary} /> } /> 
                     <Route path="/cities/:city" element = { <CityVenues urldictionary={this.state.xrequestUrlDictionary} /> } />
                     <Route path="/venues/:venueID" element = { <VenueProducts urldictionary={this.state.xrequestUrlDictionary} /> } />
-
-                    <Route path="/account" element = { <Login /> } />
-                    <Route path="/login" element = { <Login /> } />
-                    <Route path="/register" element = { <Register /> } />
+                    <Route path="/account" element = { <AccountPage urldictionary={this.state.xrequestUrlDictionary} realm={this.state.userRealm} userLoginStatus={this.state.userLoggedIn} /> } />
+                    <Route path="/order/:orderID" element = { <OrderDetails urldictionary={this.state.xrequestUrlDictionary}/> } />
                     <Route path="/cart" element = { <ShoppingCart /> } />
                     <Route path="/*" element = { <Error />} />
                     {/*

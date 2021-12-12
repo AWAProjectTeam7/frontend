@@ -1,0 +1,25 @@
+.fields {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+.panelButton {
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 300px;
+}
+
+.error {
+    color: red;
+}
+
+.dataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
