@@ -10,7 +10,9 @@ export default function ProductCard(props) {
             name: name,
             price: price
         });
-        console.log(cartProducts);
+        cartProducts.forEach(element => {
+            console.log(element);
+        });
     }
 
     return (
@@ -22,7 +24,7 @@ export default function ProductCard(props) {
             <h2 className={styles.tileTitle}>
                 { props.data.name }
             </h2>
-            <button onClick={ addItemToCart }>Add to Cart</button>
+            <button onClick={ addItemToCart }><i class="fas fa-cart-plus"></i>Add to Cart</button>
             <div className={styles.tileSubtext1}>
                 {props.data.description}
             </div>
