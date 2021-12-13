@@ -38,6 +38,18 @@ class Cart extends React.Component {
         });
     }
 
+    compareVenues = () => {
+        let cartProducts = [];
+        this.state.venueProducts.forEach(element => {
+            let _element = this.state.cartContent.contents.find(cartElement => cartElement.productID == element.id);
+            if (_element)
+            {
+                cartProducts.push({_element});
+            }
+        });
+        return cartProducts;
+    }
+
         render() {
             let content = (
             <div>
@@ -49,7 +61,7 @@ class Cart extends React.Component {
                 </div>
                 <div>
                     {
-
+                        
                     }
                 </div>
                 <Outlet />
