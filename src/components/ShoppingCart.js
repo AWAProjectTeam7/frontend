@@ -47,7 +47,7 @@ class Cart extends React.Component {
             if (_element)
             {
                 element.quantity = _element.quantity;
-                cartProducts.push({element});
+                cartProducts.push(element);
             }
         });
         return cartProducts;
@@ -59,7 +59,10 @@ class Cart extends React.Component {
                 <h1>Shopping cart</h1>
                 <div>
                     {
-                        (this.state.isCartEmpty) ? "Your cart is empty." : <CategoryContainer categoryTitle="title" _componentData={this.state.cartContent} _component={ProductCard}/>
+                        (this.state.isCartEmpty) ? "Your cart is empty." : <CategoryContainer 
+                        categoryTitle="title" _componentData={this.state.cartContent} 
+                        add={CartManager.addItem} delete={CartManager.removeItem}
+                        _component={ProductCard}/>
                     }
                 </div>
                 <div>

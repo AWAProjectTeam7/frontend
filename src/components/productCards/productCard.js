@@ -16,6 +16,8 @@ export default function ProductCard(props) {
             <div className={styles.tileSubtext2}>
                 {props.data.price} €
             </div>
+            <button onClick={ () => props.add }>+</button>
+            <button onClick={ () => props.delete }>-</button>
         </div>
     </div>
     )
