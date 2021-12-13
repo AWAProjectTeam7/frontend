@@ -76,7 +76,7 @@ class App extends React.Component {
                     <Route path="/venues/:venueID" element = { <VenueProducts urldictionary={this.state.xrequestUrlDictionary} /> } />
                     <Route path="/account" element = { <AccountPage urldictionary={this.state.xrequestUrlDictionary} realm={this.state.userRealm} userLoginStatus={this.state.userLoggedIn} /> } />
                     <Route path="/order/:orderID" element = { <OrderDetails urldictionary={this.state.xrequestUrlDictionary}/> } />
-                    <Route path="/cart" element = { <ShoppingCart /> } />
+                    <Route path="/cart" element = { <ShoppingCart urldictionary={this.state.xrequestUrlDictionary}/> } />
                     <Route path="/*" element = { <Error />} />
                     {/*
                     <Route path="/*" element = { <Error />} />
