@@ -45,7 +45,7 @@ export default function VenueDataDisplay(props) {
         <div className={styles.tileSubtext1}>
             {props.data.address} , {props.data.city}
         </div>
-        <div className={(venueOpenText()) ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
+        <div className={(isVenueOpen()) ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
             {(props.data.businessHours) ? venueOpenText() : ""}
         </div>
         <div className={styles.tileSubtext1}>

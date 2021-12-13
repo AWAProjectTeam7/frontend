@@ -34,6 +34,7 @@ export default function VenueCard(props) {
         {
             status = "Closed"
         }
+        console.log(status);
         return status;
     }
 
@@ -54,7 +55,7 @@ export default function VenueCard(props) {
             <div className={styles.tileSubtext1}>
                 {props.data.address} , {props.data.city}
             </div>
-            <div className={(venueOpenText()) ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
+            <div className={((isVenueOpen()) ? styles.tileSubtext2_ok : styles.tileSubtext2_no)}>
                 {venueOpenText()}
             </div>
             <div className={styles.tileSubtext1}>
