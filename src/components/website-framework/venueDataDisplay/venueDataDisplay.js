@@ -13,16 +13,23 @@ export default function VenueDataDisplay(props) {
         let currDate = new Date();
         let currDayShort = currDate.toLocaleDateString('en-EN', { weekday: 'short'});
         currDayShort = currDayShort.charAt(0).toLowerCase() + currDayShort.slice(1);
-        let status = "closed";
+        let status = false;
         if ((props.data.businessHours[currDayShort][0] <= currDate.getHours()) && ( currDate.getHours() < props.data.businessHours[currDayShort][1]))
         {
-            status = "Open";
-            props.data.openStyling = true;
+            status = true;
+        }
+        return status;
+    }
+
+    function venueOpenText() {
+        let status = isVenueOpen();
+        if (status)
+        {
+            status = "Open"
         }
         else
         {
-            status = "Closed";
-            props.data.openStyling = false;
+            status = "Closed"
         }
         return status;
     }
@@ -38,8 +45,8 @@ export default function VenueDataDisplay(props) {
         <div className={styles.tileSubtext1}>
             {props.data.address} , {props.data.city}
         </div>
-        <div className={props.data.openStyling ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
-            {(props.data.businessHours) ? isVenueOpen() : ""}
+        <div className={(venueOpenText()) ? styles.tileSubtext2_ok : styles.tileSubtext2_no}>
+            {(props.data.businessHours) ? venueOpenText() : ""}
         </div>
         <div className={styles.tileSubtext1}>
             Price rating: {parsePricing(props.data.pricing)}
