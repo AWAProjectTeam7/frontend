@@ -125,7 +125,7 @@ class Cart extends React.Component {
                     <h1 className={styles.containerTitle}> { "Shopping cart" } </h1>
                     <div className={styles.mainContainer}>
                         {
-                            (this.state.isCartEmpty) ? "" : _leftside
+                            (this.state.isCartEmpty) ? "Your cart is empty." : _leftside
                         }
                         {
                             (this.state.isCartEmpty) ? "" : _rightside
