@@ -42,8 +42,8 @@
 
 .tileImage {
     display: block;
-    max-width: 18vw;
-    max-height: 18vh;
+    max-width: 7.5rem;
+    max-height: 7.5rem;
     margin-bottom: 5px;
 }
 
