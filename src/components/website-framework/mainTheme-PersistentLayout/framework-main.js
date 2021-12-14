@@ -1,7 +1,7 @@
 import styles from './framework-main.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ShoppingCart from '../../ShoppingCart'
+import ShoppingCart from '../../routes/shoppingCart/ShoppingCart'
 //Import account module
 import Accounts from '../accountPanels/accountPanelsSelector';
 //

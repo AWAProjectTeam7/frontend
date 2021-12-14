@@ -7,7 +7,7 @@ import CityVenues from './components/routes/cityVenues/cityVenues';
 import VenueProducts from './components/routes/venueContents/venueContents';
 import Login from './components/Login';
 import Register from './components/Register';
-import ShoppingCart from './components/ShoppingCart';
+import ShoppingCart from './components/routes/shoppingCart/ShoppingCart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //
 import xrequest from './managed_scripts/xrequest';
@@ -71,12 +71,18 @@ class App extends React.Component {
                 {/* Page contents */}
             <div id="content">
                 <Routes>
+
                     <Route path="/" element={ <FrontPageContents urldictionary={this.state.xrequestUrlDictionary} /> } /> 
                     <Route path="/cities/:city" element = { <CityVenues urldictionary={this.state.xrequestUrlDictionary} /> } />
                     <Route path="/venues/:venueID" element = { <VenueProducts urldictionary={this.state.xrequestUrlDictionary} /> } />
                     <Route path="/account" element = { <AccountPage urldictionary={this.state.xrequestUrlDictionary} realm={this.state.userRealm} userLoginStatus={this.state.userLoggedIn} /> } />
                     <Route path="/order/:orderID" element = { <OrderDetails urldictionary={this.state.xrequestUrlDictionary}/> } />
-                    <Route path="/cart" element = { <ShoppingCart urldictionary={this.state.xrequestUrlDictionary}/> } />
+                    {
+                        this.state.userRealm != "corporate" && 
+                        <Route path="/cart" element = { <ShoppingCart urldictionary={this.state.xrequestUrlDictionary}/> } />
+                        
+                    }
+
                     <Route path="/*" element = { <Error />} />
                     {/*
                     <Route path="/*" element = { <Error />} />

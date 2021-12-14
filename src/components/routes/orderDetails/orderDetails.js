@@ -63,17 +63,9 @@ class OrderDetails extends React.Component {
         {
             return <div />
         }
-        let orderDetails = (
-            <div className={styles.containerArea}>
-                <h1 className={styles.containerTitle}>
-                    { "Order details" }
-                </h1>
-                
-            </div>
-        );
         let _contents = (
             <div className={styles.containerAreaMain}>
-                <h1 className={styles.containerTitle}> </h1>
+                <h1 className={styles.containerTitle}> { "Order details" } </h1>
                 <div className={styles.mainContainer}>
                     <div className={styles.halfContainer}>
                         <Container containerTitle="Customer details" _component={CustomerFieldOrder} _componentProps={this.state.orderData.customer}/>

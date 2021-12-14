@@ -3,16 +3,14 @@ const productCart = {
         let cartContents = productCart.loadCart();
         if (cartContents)
         {
-            let contentIndex = cartContents.contents.findIndex(element => element.productID == itemID);
-            console.log(cartContents.contents);
-            console.log(contentIndex);
+            let contentIndex = cartContents.orderContents.findIndex(element => element.productID == itemID);
             if (contentIndex != -1)
             {
-                cartContents.contents[contentIndex].quantity++;
+                cartContents.orderContents[contentIndex].quantity++;
             }
             else
             {
-                cartContents.contents.push({
+                cartContents.orderContents.push({
                     productID: itemID,
                     quantity: 1
                 });
@@ -24,16 +22,16 @@ const productCart = {
         let cartContents = productCart.loadCart();
         if (cartContents)
         {
-            let contentIndex = cartContents.contents.findIndex(element => element.productID == itemID);
+            let contentIndex = cartContents.orderContents.findIndex(element => element.productID == itemID);
             if (contentIndex != -1)
             {
-                if (cartContents.contents[contentIndex].quantity-1 == 0)
+                if (cartContents.orderContents[contentIndex].quantity-1 == 0)
                 {
-                    cartContents.contents.splice(contentIndex, 1);
+                    cartContents.orderContents.splice(contentIndex, 1);
                 }
                 else
                 {
-                    cartContents.contents[contentIndex].quantity--;
+                    cartContents.orderContents[contentIndex].quantity--;
                 }
             }
             productCart.saveCart(cartContents);
@@ -57,8 +55,8 @@ const productCart = {
         if (cartContents == false || cartContents.venueID != venueID)
         {
             cartContents = {
-                venueID: venueID,
-                contents: []
+                venueID: Number.parseInt(venueID),
+                orderContents: []
             };
             productCart.saveCart(cartContents);
         }
