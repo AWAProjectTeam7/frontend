@@ -47,9 +47,12 @@ class Cart extends React.Component {
                     cartContent: this.compareVenues(response.data.products)
                 }, ()=>{this.getCartTotal()});
                 xrequest.GET("get_consumer_account_data", "", (response)=>{
-                    this.setState({ 
-                        consumerData: response.data.user
-                    });
+                    if (response.status == "success")
+                    {
+                        this.setState({ 
+                            consumerData: response.data.user
+                        });
+                    }
                 });
             });
         }
