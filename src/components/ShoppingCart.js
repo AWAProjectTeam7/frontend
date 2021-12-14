@@ -61,14 +61,15 @@ class Cart extends React.Component {
                     {
                         (this.state.isCartEmpty) ? "Your cart is empty." : <CategoryContainer 
                         categoryTitle="title" _componentData={this.state.cartContent} 
-                        add={CartManager.addItem} delete={CartManager.removeItem}
+                        addItem={CartManager.addItem} deleteItem={CartManager.removeItem}
                         _component={ProductCard}/>
                     }
                 </div>
                 <div>
-                    {
-                        
-                    }
+                    <h2>Total: </h2>
+                </div>
+                <div>
+                    <button>Submit order</button>
                 </div>
                 <Outlet />
             </div>

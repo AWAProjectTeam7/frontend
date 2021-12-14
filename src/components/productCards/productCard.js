@@ -3,6 +3,7 @@ import styles from './productCard.module.css'
 
 export default function ProductCard(props) {
 
+    
 
     return (
     <div className={styles.tileArea}>
@@ -16,8 +17,8 @@ export default function ProductCard(props) {
             <div className={styles.tileSubtext2}>
                 {props.data.price} €
             </div>
-            <button onClick={ () => props.add }>+</button>
-            <button onClick={ () => props.delete }>-</button>
+            <button >+</button>
+            <button >-</button>
         </div>
     </div>
     )
